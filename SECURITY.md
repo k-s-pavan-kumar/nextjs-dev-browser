@@ -8,7 +8,7 @@ commands — please report it privately rather than opening a public issue.
 
 ## Reporting
 
-Email: security@your-domain.example
+Email: kallurisubrahmanyam24@gmail.com
 (or use GitHub's private vulnerability reporting under the repo's
 "Security" tab, if enabled)
 

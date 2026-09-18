@@ -1,7 +1,7 @@
 # nextjs-dev-browser
 
 [![npm version](https://img.shields.io/npm/v/nextjs-dev-browser.svg)](https://www.npmjs.com/package/nextjs-dev-browser)
-[![CI](https://github.com/your-org/nextjs-dev-browser/actions/workflows/ci.yml/badge.svg)](https://github.com/your-org/nextjs-dev-browser/actions/workflows/ci.yml)
+[![CI](https://github.com/k-s-pavan-kumar/nextjs-dev-browser/actions/workflows/ci.yml/badge.svg)](https://github.com/k-s-pavan-kumar/nextjs-dev-browser/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![npm downloads](https://img.shields.io/npm/dm/nextjs-dev-browser.svg)](https://www.npmjs.com/package/nextjs-dev-browser)
 

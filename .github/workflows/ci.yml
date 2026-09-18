@@ -1,0 +1,42 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  verify:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
+        node-version: [18, 20]
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: Install dependencies
+        run: npm install
+        env:
+          # Avoid downloading Chromium in CI just to validate syntax/packing —
+          # the browser launch itself isn't tested here, only the code and
+          # the packed artifact contents.
+          SKIP_PLAYWRIGHT_INSTALL: '1'
+
+      - name: Syntax-check every script
+        shell: bash
+        run: |
+          for f in bin/cli.js lib/*.js scripts/*.js; do
+            node --check "$f"
+          done
+
+      - name: Verify packed contents (fails if files are missing/unexpected)
+        run: npm pack --dry-run
+
+      - name: CLI smoke test (usage output, no browser launch)
+        run: node bin/cli.js

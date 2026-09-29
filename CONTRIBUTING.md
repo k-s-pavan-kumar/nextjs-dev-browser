@@ -5,7 +5,7 @@ Thanks for considering a contribution.
 ## Local development
 
 ```bash
-git clone https://github.com/your-org/nextjs-dev-browser.git
+git clone https://github.com/k-s-pavan-kumar/nextjs-dev-browser.git
 cd nextjs-dev-browser
 npm install
 ```

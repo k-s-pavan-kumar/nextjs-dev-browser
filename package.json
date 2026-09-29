@@ -42,12 +42,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/your-org/nextjs-dev-browser.git"
+    "url": "https://github.com/k-s-pavan-kumar/nextjs-dev-browser.git"
   },
   "bugs": {
-    "url": "https://github.com/your-org/nextjs-dev-browser/issues"
+    "url": "https://github.com/k-s-pavan-kumar/nextjs-dev-browser/issues"
   },
-  "homepage": "https://github.com/your-org/nextjs-dev-browser#readme",
+  "homepage": "https://github.com/k-s-pavan-kumar/nextjs-dev-browser#readme",
   "author": "Your Name <you@example.com>",
   "publishConfig": {
     "access": "public"

@@ -1,9 +1,11 @@
 # nextjs-dev-browser
 
 [![npm version](https://img.shields.io/npm/v/nextjs-dev-browser.svg)](https://www.npmjs.com/package/nextjs-dev-browser)
-[![CI](https://github.com/k-s-pavan-kumar/nextjs-dev-browser/actions/workflows/ci.yml/badge.svg)](https://github.com/k-s-pavan-kumar/nextjs-dev-browser/actions/workflows/ci.yml)
+[![CI](https://github.com/your-org/nextjs-dev-browser/actions/workflows/ci.yml/badge.svg)](https://github.com/your-org/nextjs-dev-browser/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![npm downloads](https://img.shields.io/npm/dm/nextjs-dev-browser.svg)](https://www.npmjs.com/package/nextjs-dev-browser)
+
+![nextjs-dev-browser demo](https://raw.githubusercontent.com/k-s-pavan-kumar/nextjs-dev-browser/main/demo.gif)
 
 An ephemeral, localhost-only browser window that auto-opens when `next dev`
 starts, and wipes its cache/cookies/storage the moment it's closed —
@@ -31,8 +33,7 @@ npx nextjs-dev-browser init
 This alone (no separate `npm install` needed — `init` handles it):
 
 1. Adds `nextjs-dev-browser` to `devDependencies` if it isn't already there
-2. Runs `npm install`, which also triggers a one-time Chromium download
-   for Playwright via this package's own `postinstall` hook
+2. Runs `npm install`
 3. Adds the required scripts to `package.json`:
    ```json
    {
@@ -82,6 +83,15 @@ are checked against an allowlist (`localhost`, `127.0.0.1`, `::1`) and
 blocked otherwise; subresource requests (fetch/XHR/websocket) are never
 blocked, so your app's calls to external APIs work normally.
 
+**No install-time scripts.** This package deliberately has no
+`preinstall`/`install`/`postinstall` in `package.json`. Chromium is
+downloaded lazily the first time a browser is actually launched (`dev`
+or `open`), not on every `npm install` — safer (nothing runs
+automatically just by adding the dependency) and avoids an unnecessary
+download for anyone who only uses `dev:plain`. Run `npx dev-browser
+install` to pre-fetch it manually if you'd rather do that upfront (e.g.
+warming a Docker image).
+
 ## Requirements
 
 - Node.js >= 18
@@ -94,7 +104,6 @@ blocked, so your app's calls to external APIs work normally.
 | Env var | Default | Purpose |
 |---|---|---|
 | `PORT` | `3000` | Port `next dev` runs on / the browser points at |
-| `SKIP_PLAYWRIGHT_INSTALL` | unset | Set to `1` to skip the Chromium download on install; set to `0` inside CI to force it despite `CI=true` |
 
 ## Contributing
 

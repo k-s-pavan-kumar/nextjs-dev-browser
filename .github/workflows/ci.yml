@@ -22,18 +22,16 @@ jobs:
 
       - name: Install dependencies
         run: npm install
-        env:
-          # Avoid downloading Chromium in CI just to validate syntax/packing —
-          # the browser launch itself isn't tested here, only the code and
-          # the packed artifact contents.
-          SKIP_PLAYWRIGHT_INSTALL: '1'
 
       - name: Syntax-check every script
         shell: bash
         run: |
-          for f in bin/cli.js lib/*.js scripts/*.js; do
+          for f in bin/cli.js lib/*.js; do
             node --check "$f"
           done
+
+      - name: Run tests
+        run: npm test
 
       - name: Verify packed contents (fails if files are missing/unexpected)
         run: npm pack --dry-run

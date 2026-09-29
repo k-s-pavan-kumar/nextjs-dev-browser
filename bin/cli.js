@@ -17,15 +17,18 @@ const commands = {
   dev: 'dev-with-browser.js',
   open: 'open-browser.js',
   init: 'init.js',
+  install: 'install-browser.js',
 };
 
 function printUsage() {
   console.log(`Usage: dev-browser <command> [args]
 
 Commands:
-  dev     Start "next dev" and auto-open an ephemeral localhost browser
-  open    Reopen the browser without restarting the dev server
-  init    Add the required scripts to this project's package.json
+  dev       Start "next dev" and auto-open an ephemeral localhost browser
+  open      Reopen the browser without restarting the dev server
+  init      Add the required scripts to this project's package.json
+  install   Manually pre-download Chromium (normally not needed — it
+            downloads automatically on first "dev-browser dev"/"open")
 
 Examples:
   dev-browser dev

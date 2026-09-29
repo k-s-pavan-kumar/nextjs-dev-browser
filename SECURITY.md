@@ -3,12 +3,12 @@
 This tool launches a real browser (via Playwright) and modifies a
 project's `package.json`. If you find a security issue — e.g. a way for
 a malicious webpage to escape the localhost-only navigation restriction,
-or a way `init`/`postinstall` could be tricked into running unintended
-commands — please report it privately rather than opening a public issue.
+or a way `init` or the lazy Chromium download could be tricked into
+running unintended commands — please report it privately rather than opening a public issue.
 
 ## Reporting
 
-Email: kallurisubrahmanyam24@gmail.com
+Email: security@your-domain.example
 (or use GitHub's private vulnerability reporting under the repo's
 "Security" tab, if enabled)
 

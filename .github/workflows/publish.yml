@@ -20,14 +20,13 @@ jobs:
 
       - name: Install dependencies
         run: npm install
-        env:
-          SKIP_PLAYWRIGHT_INSTALL: '1'
 
       - name: Sanity checks before publishing
         run: |
-          for f in bin/cli.js lib/*.js scripts/*.js; do
+          for f in bin/cli.js lib/*.js; do
             node --check "$f"
           done
+          npm test
           npm pack --dry-run
 
       - name: Verify tag matches package.json version
